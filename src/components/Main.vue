@@ -2,16 +2,24 @@
   <main>
       <div class="container">
           <div class="albums">
-          <div class="album text-center"
+          <!-- <div class="album text-center"
           v-for="(album, index) in arrayAlbum"
           :key="index"
            >
            <div class="album-cover">
            <img :src="album.poster" alt="">
            </div>
-             <h3>{{album.author}}</h3>
+             <h3>{{album.title}}</h3>
              <p>{{album.author}} {{album.year}}</p>
-          </div>
+          </div> -->
+          <Album 
+          v-for="(album, index) in arrayAlbum"
+          :key="index"
+          :src="album.poster"
+          :titolo="album.title"
+          :autore="album.author"
+          :anno="album.year"
+          />
           </div>
       </div>
   </main>
@@ -19,8 +27,12 @@
 
 <script>
 import axios from 'axios';
+import Album from "./Album.vue";
 export default {
 name: "Main",
+components: {
+    Album
+},
 data() {
     return{
         arrayAlbum:null,
@@ -44,26 +56,41 @@ mounted() {
 .container {
     display: flex;
     background-color: $BgColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
     .albums {
         width: 70%;
         margin: auto;
         display: flex;
         flex-wrap: wrap;
-        .album {
-            width: calc(100% / 5 - 40px);
-            margin-left: 40px;
-            margin-bottom: 30px;
-            height: 350px;
-            background-color: $GrayColor;
-            .album-cover {
-                width: 70%;
-                margin: 0 auto;
-                img {
-                    width:100%;
-                }
-            }
-            h
-        }
+        // .album {
+        //     width: calc(100% / 5 - 40px);
+        //     margin-left: 40px;
+        //     margin-bottom: 30px;
+        //     height: 350px;
+        //     background-color: $GrayColor;
+        //     .album-cover {
+        //         width: 70%;
+        //         margin: 0 auto;
+        //         margin-top: 20px;
+        //         img {
+        //             width:100%;
+        //         }
+        //     }
+        //     h3 {
+        //         color: white;
+        //         font-size: 1.6em;
+        //         margin-top: 20px;
+        //     }
+        //     p {
+        //         color: gray;
+        //         font-size: 1.3em;
+        //         margin-top: 30px;
+
+        //     }
+        // }
     }
 }
 </style>
