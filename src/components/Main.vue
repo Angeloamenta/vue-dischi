@@ -49,6 +49,7 @@ data() {
         albumGen: "",
         selected: "",
         newArray: null,
+        array2 : [],
     }
 },
 mounted() {
@@ -56,6 +57,7 @@ mounted() {
     .then((result) => {
         console.log(result.data.response);
         this.arrayAlbum = result.data.response;
+        this.array2 = result.data.response;
 
     })
     .catch((error) => {
@@ -67,13 +69,14 @@ methods: {
      console.log(this.albumGen);
      console.log(this.selected);
      console.log("array",this.arrayAlbum[0].genre);
-     if (this.selected == this.arrayAlbum[0].genre.toLowerCase()) {
-         console.log("ciao");
-     }
     this.newArray = this.arrayAlbum.filter((element) => element.genre == this.selected)
     console.log("new", this.newArray);
-
-    this.arrayAlbum = this.newArray;
+    if (this.selected == "") {
+        this.arrayAlbum = this.array2
+    }else {
+        this.arrayAlbum = this.newArray;
+        
+    }
     
  },
 },
