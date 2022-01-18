@@ -4,7 +4,6 @@
           <div class="selector">
                         <label  class="label-select" for="filter">FILTRA PER TIPO</label>
                             <select @change="filterAlbum" v-model="selected" id="filter">
-                            <option class="all" value="All">All</option>
                             <option class="rock" value="Rock">Rock</option>
                             <option class="pop" value="Pop">Pop</option>
                             <option class="jazz" value="Jazz">Jazz</option>
@@ -73,6 +72,8 @@ methods: {
      }
     this.newArray = this.arrayAlbum.filter((element) => element.genre == this.selected)
     console.log("new", this.newArray);
+
+    this.arrayAlbum = this.newArray;
     
  },
 },
