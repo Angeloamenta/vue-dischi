@@ -22,7 +22,7 @@
              <p>{{album.author}} {{album.year}}</p>
           </div> -->
           <Album 
-          v-for="(album, index) in arrayAlbum"
+          v-for="(album, index) in newArray"
           :key="index"
           :src="album.poster"
           :titolo="album.title"
@@ -57,7 +57,7 @@ mounted() {
     .then((result) => {
         console.log(result.data.response);
         this.arrayAlbum = result.data.response;
-        this.array2 = result.data.response;
+        this.newArray = this.arrayAlbum;
 
     })
     .catch((error) => {
