@@ -10,7 +10,7 @@
                             <option class="jazz" value="Jazz">Jazz</option>
                             <option class="metal" value="Metal">Metal</option> -->
                             <Search
-                            @doSearch="searchCharacters($event)"
+                            @doSearch="filterAlbum($event)"
                             />
 
          </div>
@@ -71,21 +71,23 @@ mounted() {
     })
 },
 methods: {
- filterAlbum() {
+ filterAlbum(input) {
      console.log(this.albumGen);
      console.log(this.selected);
+     console.log(input);
+      this.selected = input;
      console.log("array",this.arrayAlbum[0].genre);
-    this.newArray = this.arrayAlbum.filter((element) => element.genre == this.selected)
+    this.newArray = this.arrayAlbum.filter((element) => element.genre == input)
     console.log("new", this.newArray);
-    if (this.selected == "All") {
+    if (input == "All") {
         this.newArray = this.arrayAlbum;
     }
     
  },
-  searchCharacters(input) {
-      console.log(input);
-      this.selected = input;
-    },
+//  searchCharacters(input) {
+//       console.log(input);
+//       this.selected = input;
+//     },
 },
 }
 </script>
