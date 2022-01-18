@@ -72,7 +72,9 @@ methods: {
      console.log("array",this.arrayAlbum[0].genre);
     this.newArray = this.arrayAlbum.filter((element) => element.genre == this.selected)
     console.log("new", this.newArray);
-    
+    if (this.selected == "All") {
+        this.newArray = this.arrayAlbum;
+    }
     
  },
 },
