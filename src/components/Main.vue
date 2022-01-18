@@ -10,7 +10,7 @@
                             <option class="jazz" value="Jazz">Jazz</option>
                             <option class="metal" value="Metal">Metal</option> -->
                             <Search
-                            @doSearch="filterAlbum($event)"
+                            @doSearch="searchCharacters($event)"
                             />
 
          </div>
@@ -82,6 +82,10 @@ methods: {
     }
     
  },
+  searchCharacters(input) {
+      console.log(input);
+      this.selected = input;
+    },
 },
 }
 </script>
