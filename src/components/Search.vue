@@ -16,6 +16,9 @@ data() {
       inputText: '',
     };
   },
+  mounted() {
+    console.log(this.inputText);
+},
 }
 
 </script>
