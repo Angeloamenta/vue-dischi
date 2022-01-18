@@ -1,6 +1,16 @@
 <template>
   <main>
       <div class="container">
+          <div class="selector">
+                        <label  class="label-select" for="filter">FILTRA PER TIPO</label>
+                            <select @change="filterAlbum" v-model="selected" id="filter">
+                            <option class="all" value="all">all</option>
+                            <option class="rock" value="rock">rock</option>
+                            <option class="pop" value="pop">pop</option>
+                            <option class="jazz" value="jazz">jazz</option>
+                            <option class="metal" value="metal">metal</option>
+                        </select>
+         </div>
           <div class="albums">
           <!-- <div class="album text-center"
           v-for="(album, index) in arrayAlbum"
@@ -28,14 +38,18 @@
 <script>
 import axios from 'axios';
 import Album from "./Album.vue";
+// import func from 'vue-editor-bridge';
 export default {
 name: "Main",
 components: {
-    Album
+    Album,
 },
 data() {
     return{
         arrayAlbum:null,
+        albumGen: "",
+        selected: "",
+        // cont: ""
     }
 },
 mounted() {
@@ -43,11 +57,23 @@ mounted() {
     .then((result) => {
         console.log(result.data.response);
         this.arrayAlbum = result.data.response;
+
     })
     .catch((error) => {
         console.log(error);
     })
-}
+},
+methods: {
+ filterAlbum() {
+     console.log(this.albumGen);
+     console.log(this.selected);
+     console.log("array",this.arrayAlbum[0].genre);
+     if (this.selected == this.arrayAlbum[0].genre.toLowerCase()) {
+         console.log("ciao");
+     }
+    
+ },
+},
 }
 </script>
 
