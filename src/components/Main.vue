@@ -71,7 +71,7 @@ methods: {
      if (this.selected == this.arrayAlbum[0].genre.toLowerCase()) {
          console.log("ciao");
      }
-    
+    // this.arrayAlbum.filter((element) => element.genre.toLowerCase() = this.selected.toLowerCase())
  },
 },
 }
