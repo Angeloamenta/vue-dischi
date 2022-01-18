@@ -4,11 +4,11 @@
           <div class="selector">
                         <label  class="label-select" for="filter">FILTRA PER TIPO</label>
                             <select @change="filterAlbum" v-model="selected" id="filter">
-                            <option class="all" value="all">all</option>
-                            <option class="rock" value="rock">rock</option>
-                            <option class="pop" value="pop">pop</option>
-                            <option class="jazz" value="jazz">jazz</option>
-                            <option class="metal" value="metal">metal</option>
+                            <option class="all" value="All">All</option>
+                            <option class="rock" value="Rock">Rock</option>
+                            <option class="pop" value="Pop">Pop</option>
+                            <option class="jazz" value="Jazz">Jazz</option>
+                            <option class="metal" value="Metal">Metal</option>
                         </select>
          </div>
           <div class="albums">
@@ -49,7 +49,7 @@ data() {
         arrayAlbum:null,
         albumGen: "",
         selected: "",
-        // cont: ""
+        newArray: null,
     }
 },
 mounted() {
@@ -71,7 +71,9 @@ methods: {
      if (this.selected == this.arrayAlbum[0].genre.toLowerCase()) {
          console.log("ciao");
      }
-    // this.arrayAlbum.filter((element) => element.genre.toLowerCase() = this.selected.toLowerCase())
+    this.newArray = this.arrayAlbum.filter((element) => element.genre == this.selected)
+    console.log("new", this.newArray);
+    
  },
 },
 }
