@@ -3,13 +3,16 @@
       <div class="container">
           <div class="selector">
                         <label  class="label-select" for="filter">FILTRA PER TIPO</label>
-                            <select @change="filterAlbum" v-model="selected" id="filter">
+                            <!-- <select @change="filterAlbum" v-model="selected" id="filter">
                                 <option class="All" value="All">All</option>
                             <option class="rock" value="Rock">Rock</option>
                             <option class="pop" value="Pop">Pop</option>
                             <option class="jazz" value="Jazz">Jazz</option>
-                            <option class="metal" value="Metal">Metal</option>
-                        </select>
+                            <option class="metal" value="Metal">Metal</option> -->
+                            <Search
+                            @doSearch="filterAlbum($event)"
+                            />
+
          </div>
           <div class="albums">
           <!-- <div class="album text-center"
@@ -38,11 +41,13 @@
 <script>
 import axios from 'axios';
 import Album from "./Album.vue";
-// import func from 'vue-editor-bridge';
+import Search from './Search.vue';
+
 export default {
 name: "Main",
 components: {
     Album,
+    Search,
 },
 data() {
     return{
